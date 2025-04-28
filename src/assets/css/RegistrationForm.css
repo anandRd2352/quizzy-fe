@@ -1,0 +1,119 @@
+.container-heading{
+    font-size: 1.8em;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    padding: 10px;
+    text-transform: uppercase;
+    z-index: 1;
+    outline: #28a745;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+.container-main {
+    background-color: aqua;
+    background-size:cover;
+    color: rgb(0, 0, 0);
+    min-height: 100vh;
+    padding: 20px;
+}
+.containerMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    flex-direction: column;
+    gap: 30px;
+}
+.inputBox{
+    position: relative;
+    width: 250px;
+
+}
+.inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #696969;
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    transition: 0.5s;
+    
+}
+.inputBox input:hover {
+    transform: translateY(2px); 
+    box-shadow: 0 0 60px rgba(140, 255, 0, 0.7); 
+}
+.inputBox label{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 1em;
+    transition: 0.5s;
+
+}
+.inputBox input:valid~ label,
+.inputBox input:focus~ label
+{
+    
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    border-left: 1px solid #28a745;
+    border-right: 1px solid #28a745;
+    letter-spacing: 0.2em;
+    background:#28a745;
+    color: #0e0d0d;
+    border-radius: 8px;
+}
+
+
+
+
+.inputBox input:valid,
+.inputBox input:focus
+{
+    border: 1px solid #28a745;
+    box-shadow:  0 0 8px rgba(40, 167, 69, 0.6);
+}
+.error-text {
+    color: red;
+    font-size: 0.675rem;
+    margin-top: 4px;
+}
+.file-upload {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.file-upload label:hover {
+  background-color: #218838;
+}
+
+.file-upload .file-name {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #ccc;
+}
