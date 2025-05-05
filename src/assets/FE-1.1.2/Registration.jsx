@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button} from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 import "../css/RegistrationForm.css";
 
 function RegistrationForm() {
@@ -8,20 +9,28 @@ function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [profileName, setProfileName] = useState('');
+  const [profileFile, setProfileFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [errors, setErrors] = useState({});
+  
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   const validateEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
-};
-const validatePassword= (password)=>{
+  }; 
+
+  const validatePassword= (password)=>{
     return password.length>=6;
-};
-const handleSubmit=(e)=>{
+  };
+
+  const handleSubmit=(e)=>{
     e.preventDefault();
     let valid = true;
+
     if (!validateEmail(email)) {
         setErrorMessage('Please enter a valid email address.');
         valid = false;
@@ -34,24 +43,44 @@ const handleSubmit=(e)=>{
       } else {
         setPasswordError('');
       }
-       if (!validatePassword(password)) {
-      setPasswordError('Password must be at least 6 characters.');
-      valid = false;
-    } else {
-      setPasswordError('');
-    }
+       
+
     if (valid) {
-        alert(`Form submitted!\nEmail: ${email}\nPassword: ${password}\nProfile Picture: ${profileName}`);
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        if (profileFile) {
+          formData.append('profilePic', profileFile);
+        }
+  
+        console.log('Form submitted!');
+        alert(`Email: ${email}\nPassword: ${password}\nProfile Pic: ${profileFile?.name}`);
       }
+    };
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          setProfileFile(file);
+          setPreviewUrl(URL.createObjectURL(file));
+          setErrors((prev) => ({ ...prev, file: null }));
+        } else {
+          setProfileFile(null);
+          setPreviewUrl(null);
+          setErrors((prev) => ({ ...prev, file: 'File is required.' }));
+        }
+      
 }
 
 
 
   return (
+    <div className="main">
     <form onSubmit={handleSubmit}>
+       
       <div className="container-heading" style={{ display: "flex", justifyContent: "center" }}>
       <h1>Registration Form</h1>
       </div>
+
       <div className="containerMain">
       <div className="inputBox">
         <input
@@ -86,26 +115,36 @@ const handleSubmit=(e)=>{
         <div className="error-text">{passwordError}</div>
       </div>
    
-      <div className="file-upload">
+      <div className="file-upload-row">
+      <Form.Group className="file-upload">
+          <Form.Label >Profile Picture</Form.Label>
+          <Form.Control
+            type="file"
+            id="profilepic"
+            accept="image/*"
+            onChange={handleFileChange}
+            isInvalid={!!errors.file}
+            
+          />
+          <Form.Control.Feedback type="invalid" tooltip>
+    {errors.file}
+  </Form.Control.Feedback>
+          {previewUrl && (
+            <div className="image-preview" style={{ marginTop: '10px' }}>
+              <img src={previewUrl} alt="Preview" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+              <p>{profileFile?.name}</p>
+            </div>
+          )}
+           </Form.Group>
+        </div>
 
-        <label>Choose Profile Picture</label>
-        <input type="file" name="profilepic" id="profilepic"  accept="image/*"
-        onChange={(e)=>{
-            const file = e.target.files[0];
-            if (file){
-                setProfileName(file.name);
-            }else{
-                setProfileName('');
-            }
-        }} />
-         {profileName && <div className="file-name">Selected: {profileName}</div>}
-       
-      </div>
       <div className="submit-button" style={{ marginTop: '20px' }}>
           <Button type="submit" variant="success">Register</Button>
         </div>
       </div>
+    
     </form>
+    </div>
   );
 }
 

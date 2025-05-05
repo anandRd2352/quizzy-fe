@@ -1,0 +1,50 @@
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .admin-sidebar .nav-link.active-link,
+  .admin-sidebar .nav-link:hover {
+    background-color: #1abc9c;
+  }
+  
+  .admin-content {
+    flex: 1;
+    padding: 10px;
+    background-color: #f0ebe3;
+    padding-top: 30px;
+  }
+  .me-2 {
+    transition: transform 0.2s ,
+     background-color 0.3s ,
+     color 0.3s ; 
+     color:  #221d0d;
+     transform: scale(1);
+     background-color: #ae9139;
+     color: rgb(0, 0, 0); 
+     border-color: #f3ca4f;
+     border-width: 0cap;
+}
+
+.me-2:hover {
+  color: #ffffff;
+  background-color: #e4b017;
+  font-weight: bold;
+  border-color: #784408;
+  border-width: 2px;
+  
+}
+.mb-4{
+  padding-top: 30px;
+}
+.mb-1{
+  color: rgb(121, 86, 25);
+  font-size:30px;
+  font-style:inherit;
+  font-weight: bold;
+
+}
+.mb-1:hover{
+
+  color: #d2ae43;
+}
