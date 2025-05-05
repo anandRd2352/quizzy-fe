@@ -1,0 +1,70 @@
+.exam-container {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.exam-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2d3436;
+  text-align: center;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #dfe6e9;
+  padding-bottom: 8px;
+}
+
+.exam-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.exam-table th,
+.exam-table td {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 15px;
+  color: #2f3542;
+}
+
+.exam-table th {
+  background-color: #f1f3f5;
+  color: #57606f;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.exam-table tr:not(:last-child) {
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.exam-table tr:hover {
+  background-color: #f0f8ff;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #0984e3;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-button:hover {
+  background-color: #0652dd;
+  transform: scale(1.05);
+}

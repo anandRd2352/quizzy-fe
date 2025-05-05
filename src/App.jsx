@@ -1,20 +1,18 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+// App.jsx
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserProfile from './assets/FE-1.2.1/UserProfile';
-
-
-
-
+import ExamTable from './assets/FE-2.1.1/ExamTable';
 
 
 function App() {
   return (
-    <div className="App">
-      <UserProfile />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<UserProfile />} />
+        <Route path="/a" element={<ExamTable />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

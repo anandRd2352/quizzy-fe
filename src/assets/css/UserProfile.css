@@ -1,10 +1,18 @@
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f4f7fb;
+}
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fff;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(216, 33%, 97%); 
+}
+
   
   .profile-card {
     background: #fff;
