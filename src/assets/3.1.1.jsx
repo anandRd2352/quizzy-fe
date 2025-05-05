@@ -5,24 +5,24 @@ const exams = [
   {
     title: 'Data Structures & Algorithms',
     time: '60 minutes',
-    instructions: 'Attempt all questions. No negative marking.',
+    instructions: 'Answer MCQ Questions. 4 marks for each qeustion. 1 negative mark for each wrong questions',
   },
   {
     title: 'Java Programming',
     time: '90 minutes',
-    instructions: 'Code all questions. Only auto-evaluated results count.',
+    instructions: 'Answer MCQ Questions. 4 marks for each qeustion. 1 negative mark for each wrong questions.',
   },
  
   {
     title:"Python Programming",
     time:"90 minutes",
-    instructions: 'Code all questions. Only auto-evaluated results count.',
+    instructions: 'Answer MCQ Questions. 4 marks for each qeustion. 1 negative mark for each wrong questions',
   },
 
   {
     title: 'C++ Programming',
     time: '90 minutes',
-    instructions: 'Code all questions. Only auto-evaluated results count.',
+    instructions: 'Answer MCQ Questions. 4 marks for each qeustion. 1 negative mark for each wrong questions',
   },
 
   {
