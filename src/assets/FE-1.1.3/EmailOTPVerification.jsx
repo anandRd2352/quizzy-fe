@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import '../css/EmailOTPVerification.css';
 
-
-
 const EmailOTPVerification = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState(new Array(6).fill(''));
@@ -48,6 +46,10 @@ const EmailOTPVerification = () => {
               />
             ))}
           </div>
+        </div>
+
+        <div className="resend-section">
+          <button className="btn resend-btn" disabled>Resend OTP in 30s</button>
         </div>
 
         <button className="btn verify-btn">Verify OTP</button>
