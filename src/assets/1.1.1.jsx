@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/1.1.1.css'; // Ensure path is correct
 
-const App = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [validated, setValidated] = useState(false);
@@ -20,6 +20,7 @@ const App = () => {
   };
 
   return (
+    <div className="outer-class">
     <div className="login-container">
       <div className="login-card">
         <h3>Student Login</h3>
@@ -63,7 +64,8 @@ const App = () => {
         </form>
       </div>
     </div>
-  );
+    </div>
+    );
 };
 
-export default App;
+export default Login;
