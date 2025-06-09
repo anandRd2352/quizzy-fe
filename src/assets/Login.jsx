@@ -26,9 +26,9 @@ function Login() {
       const res = await axios.post("http://localhost:8081/api/users/login", formData);
       const { email, role } = res.data;
 
-      // ✅ Optional: Store login info
-      localStorage.setItem("email", email);
-      localStorage.setItem("role", role);
+      // ✅ Store login info using consistent keys
+      localStorage.setItem("userEmail", email); // <- IMPORTANT: must match key used in StudentDashboard
+      localStorage.setItem("userRole", role);
 
       setMessage("Login successful!");
 
@@ -44,7 +44,6 @@ function Login() {
       }, 1000);
 
     } catch (error) {
-      // ✅ More accurate error message handling
       const errMsg =
         error.response?.data?.message || "Login failed. Please try again.";
       setMessage(errMsg);

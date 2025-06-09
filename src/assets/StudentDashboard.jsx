@@ -44,36 +44,41 @@ function StudentDashboard() {
   };
 
   const calculateScore = () => {
-    let count = 0;
-    questions.forEach((q, idx) => {
-      if (answers[idx] && answers[idx] === q.correctAnswer) {
-        count++;
-      }
-    });
-
-    setScore(count);
-    setShowScore(true);
-
-    const studentId = localStorage.getItem("studentId");
-    const selectedExam = exams.find((exam) => exam.id === selectedExamId);
-
-    if (studentId && selectedExam) {
-      axios
-        .post("http://localhost:8081/api/results", {
-          studentId: parseInt(studentId),
-          examId: selectedExamId,
-          examTitle: selectedExam.title,
-          score: count,
-        })
-        .then(() => {
-          console.log("Result saved successfully");
-        })
-        .catch((err) => {
-          console.error("Failed to save result", err);
-          alert("Failed to save result");
-        });
+  let count = 0;
+  questions.forEach((q, idx) => {
+    if (answers[idx] && answers[idx] === q.correctAnswer) {
+      count++;
     }
-  };
+  });
+
+  setScore(count);
+  setShowScore(true);
+
+  const userEmail = localStorage.getItem("userEmail");
+  console.log("User Email from localStorage:", userEmail);
+
+  const selectedExam = exams.find((exam) => exam.id === selectedExamId);
+  console.log("Selected Exam:", selectedExam);
+
+  if (userEmail && selectedExam) {
+    axios
+      .post("http://localhost:8081/api/results", {
+        email: userEmail,
+        examId: selectedExamId,
+        examTitle: selectedExam.title,
+        score: count,
+      })
+      .then(() => {
+        console.log("Result saved successfully");
+      })
+      .catch((err) => {
+        console.error("Failed to save result", err);
+        alert("Failed to save result");
+      });
+  } else {
+    alert("User not logged in or exam not selected.");
+  }
+};
 
   return (
     <div className="container mt-4">
@@ -84,12 +89,19 @@ function StudentDashboard() {
           <h4>Select an Exam to Start</h4>
           <ul className="list-group">
             {exams.map((exam) => (
-              <li key={exam.id} className="list-group-item d-flex justify-content-between">
+              <li
+                key={exam.id}
+                className="list-group-item d-flex justify-content-between"
+              >
                 <div>
-                  <strong>{exam.title}</strong><br />
+                  <strong>{exam.title}</strong>
+                  <br />
                   <small>{exam.description}</small>
                 </div>
-                <button className="btn btn-primary" onClick={() => startExam(exam.id)}>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => startExam(exam.id)}
+                >
                   Attend Exam
                 </button>
               </li>
@@ -105,7 +117,8 @@ function StudentDashboard() {
           </h4>
           <p>{questions[currentQuestionIndex].questionText}</p>
           {["a", "b", "c", "d"].map((optionKey) => {
-            const label = questions[currentQuestionIndex][`option${optionKey.toUpperCase()}`];
+            const label =
+              questions[currentQuestionIndex][`option${optionKey.toUpperCase()}`];
             return (
               <div key={optionKey} className="form-check">
                 <input
@@ -129,7 +142,9 @@ function StudentDashboard() {
       {showScore && (
         <div className="mt-4">
           <h4>Exam Completed!</h4>
-          <p>Your score: {score} / {questions.length}</p>
+          <p>
+            Your score: {score} / {questions.length}
+          </p>
           <button className="btn btn-secondary" onClick={() => setSelectedExamId(null)}>
             Back to Dashboard
           </button>
