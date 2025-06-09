@@ -1,0 +1,67 @@
+/* Full screen center layout with soft blue-gray background */
+.outer-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9eff6; /* Soft blue-gray tone */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Registration box with subtle shadows and muted white background */
+.register-box {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Heading */
+.register-box h2 {
+  margin-bottom: 24px;
+  text-align: center;
+  color: #2c3e50; /* Dark slate blue */
+}
+
+/* Form elements spacing */
+.form-group label {
+  color: #34495e; /* Mid-grayish-blue for text */
+  font-weight: 500;
+}
+
+/* Buttons */
+button.btn-primary {
+  background-color: #3498db;
+  border: none;
+}
+button.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+/* Alerts */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+/* Text below form */
+.text-center span {
+  font-weight: 500;
+}
+
+/* Optional fix if App.css interferes */
+#root {
+  max-width: none !important;
+  padding: 0 !important;
+  text-align: initial !important;
+}

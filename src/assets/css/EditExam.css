@@ -1,0 +1,127 @@
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+  padding: 0 15px;
+}
+
+/* Message styles */
+.message {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+/* Exam item box */
+.exam-item {
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* Form labels */
+.edit-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs and textarea */
+.edit-form input,
+.edit-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  font-family: inherit;
+}
+
+/* Button container */
+.buttons {
+  margin-top: 15px;
+}
+
+/* Common button styles */
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  text-align: center;
+}
+
+/* Save button (green) */
+.btn-save {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #218838;
+}
+
+/* Cancel button (red) */
+.btn-cancel {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+}
+
+/* Edit button (blue) */
+.btn-edit {
+  background-color: #007bff;
+  color: white;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

@@ -1,50 +1,53 @@
-.admin-layout {
-    display: flex;
-    min-height: 100vh;
-  }
-
-  .admin-sidebar .nav-link.active-link,
-  .admin-sidebar .nav-link:hover {
-    background-color: #1abc9c;
-  }
-  
-  .admin-content {
-    flex: 1;
-    padding: 10px;
-    background-color: #f0ebe3;
-    padding-top: 30px;
-  }
-  .me-2 {
-    transition: transform 0.2s ,
-     background-color 0.3s ,
-     color 0.3s ; 
-     color:  #221d0d;
-     transform: scale(1);
-     background-color: #ae9139;
-     color: rgb(0, 0, 0); 
-     border-color: #f3ca4f;
-     border-width: 0cap;
+.outer-admin-container {
+  padding: 30px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
 
-.me-2:hover {
-  color: #ffffff;
-  background-color: #e4b017;
-  font-weight: bold;
-  border-color: #784408;
-  border-width: 2px;
-  
+.admin-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-.mb-4{
-  padding-top: 30px;
-}
-.mb-1{
-  color: rgb(121, 86, 25);
-  font-size:30px;
-  font-style:inherit;
-  font-weight: bold;
 
+.admin-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
-.mb-1:hover{
 
-  color: #d2ae43;
+.admin-section {
+  margin-bottom: 30px;
+}
+
+.admin-section h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.admin-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-menu li button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.admin-menu li button:hover {
+  background-color: #0056b3;
 }

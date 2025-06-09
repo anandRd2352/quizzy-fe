@@ -1,0 +1,51 @@
+.add-exam-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-top: 50px;
+  background-color: #f9f9f9;
+}
+
+.add-exam-container h2 {
+  text-align: center;
+}
+
+.add-exam-container form div {
+  margin-bottom: 15px;
+}
+
+.add-exam-container input,
+.add-exam-container textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.add-exam-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2c7be5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-exam-container button:hover {
+  background-color: #1a5ecb;
+}
+
+.status-message {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: green;
+}

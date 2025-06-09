@@ -1,0 +1,22 @@
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eef2f7; /* soft blue/grey for eye comfort */
+}
+
+.register-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+}
+
+.register-box h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}

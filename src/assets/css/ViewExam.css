@@ -1,0 +1,31 @@
+.view-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 15px;
+  font-family: Arial, sans-serif;
+}
+
+.view-exam-card {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.view-exam-card h4 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.view-exam-card p {
+  margin: 0;
+  color: #555;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
