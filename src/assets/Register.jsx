@@ -14,23 +14,26 @@ function Register() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const res = await axios.post("http://localhost:8081/api/users/register", formData);
-    setMessage("User registered successfully!");
-  } catch (error) {
-    setMessage(error.response?.data?.message || "Registration failed");
-  }
-};
+    try {
+      await axios.post("http://localhost:8081/api/users/register", formData);
+      setMessage("User registered successfully!");
 
+      await axios.post("http://localhost:8081/api/otp/send", null, {
+        params: { email: formData.email },
+      });
+
+      // Navigate to OTP page and pass email as state
+      navigate("/otp-verification", { state: { email: formData.email } });
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Registration failed");
+    }
+  };
 
   return (
     <div className="outer-container">
@@ -84,9 +87,7 @@ function Register() {
         {message && (
           <div
             className={`alert mt-3 ${
-              message === "User registered successfully!"
-                ? "alert-success"
-                : "alert-danger"
+              message === "User registered successfully!" ? "alert-success" : "alert-danger"
             }`}
           >
             {message}

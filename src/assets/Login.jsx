@@ -101,7 +101,7 @@ function Login() {
           <span
             className="text-primary"
             style={{ cursor: "pointer", textDecoration: "underline" }}
-            onClick={() => navigate("/register")}
+            onClick={() => navigate("/")}
           >
             Register here
           </span>

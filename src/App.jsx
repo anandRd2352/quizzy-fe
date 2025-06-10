@@ -13,6 +13,7 @@ import QuestionList from "./assets/QuestionList";
 import EditQuestion from "./assets/EditQuestion";
 import ViewQuestion from "./assets/ViewQuestion";
 import DeleteQuestion from "./assets/DeleteQuestion";
+import OtpVerification from "./assets/OtpVerification";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
+           <Route path="/otp-verification" element={<OtpVerification />} /> 
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-dashboard/add" element={<AddExam />} />
           <Route path="/admin-dashboard/edit" element={<EditExam/>}/>
