@@ -5,7 +5,7 @@ import "../assets/css/EditExam.css";
 function EditExam() {
   const [exams, setExams] = useState([]);
   const [editingExamId, setEditingExamId] = useState(null);
-  const [formData, setFormData] = useState({ title: "", description: "" });
+  const [formData, setFormData] = useState({ title: "", description: "",durationInMinutes:"" });
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function EditExam() {
 
   const startEdit = (exam) => {
     setEditingExamId(exam.id);
-    setFormData({ title: exam.title, description: exam.description });
+    setFormData({ title: exam.title, description: exam.description ,durationInMinutes: exam.durationInMinutes || ""});
     setMessage("");
   };
 
@@ -78,6 +78,16 @@ function EditExam() {
                   required
                   rows="3"
                 />
+                <label>Duration (in minutes):</label>
+                <input
+                type="number"
+                name="durationInMinutes"
+                value={formData.durationInMinutes}
+                onChange={handleChange}
+                required
+                min="1"
+                />
+
                 <div className="buttons">
                   <button type="submit" className="btn-save">Save</button>
                   <button

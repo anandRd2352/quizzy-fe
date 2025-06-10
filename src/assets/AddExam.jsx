@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../assets/css/AddExam.css"; 
 
 function AddExam() {
-  const [form, setForm] = useState({ title: "", description: "" });
+  const [form, setForm] = useState({ title: "", description: "" ,durationInMinutes:""});
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -52,6 +52,18 @@ function AddExam() {
             required
           ></textarea>
         </div>
+      <div>
+        <label>Duration (in minutes):</label>
+         <input
+          type="number"
+          name="durationInMinutes"
+          value={form.durationInMinutes}
+          onChange={handleChange}
+          required
+          min="1"
+         />
+       </div>
+
         <button type="submit">Add Exam</button>
       </form>
     </div>

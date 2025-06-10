@@ -1,13 +1,13 @@
-package com.online_exam.OnlineExam;
+package com.example.onlineexam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OnlineExamApplication {
+public class OnlineexamApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OnlineExamApplication.class, args);
+		SpringApplication.run(OnlineexamApplication.class, args);
 	}
 
 }
