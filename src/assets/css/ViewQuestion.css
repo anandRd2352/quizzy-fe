@@ -1,0 +1,57 @@
+/* ViewQuestion.css */
+
+.view-question-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f7fc;
+  border: 1px solid #cfd8dc;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.view-question-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.select-exam label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-select {
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.question-list {
+  margin-top: 20px;
+}
+
+.question-card {
+  background-color: #ffffff;
+  border: 1px solid #dce3e8;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.question-card p {
+  margin-bottom: 8px;
+}
+
+.no-questions {
+  color: #c00;
+  font-weight: 500;
+  margin-top: 15px;
+  text-align: center;
+}

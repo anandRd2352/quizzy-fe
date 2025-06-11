@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./css/StudentDashboard.css";
 
 function StudentDashboard() {
   const [exams, setExams] = useState([]);
@@ -9,7 +10,7 @@ function StudentDashboard() {
   const [answers, setAnswers] = useState({});
   const [score, setScore] = useState(null);
   const [showScore, setShowScore] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(null); // Timer state
+  const [timeLeft, setTimeLeft] = useState(null);
 
   useEffect(() => {
     axios
@@ -20,7 +21,7 @@ function StudentDashboard() {
 
   const startExam = (exam) => {
     setSelectedExam(exam);
-    setTimeLeft(exam.durationInMinutes * 60); // start timer
+    setTimeLeft(exam.durationInMinutes * 60);
 
     axios
       .get(`http://localhost:8081/api/questions/exam/${exam.id}`)
@@ -34,7 +35,6 @@ function StudentDashboard() {
       .catch(() => alert("Failed to load questions"));
   };
 
-  // Auto-submit when time runs out
   useEffect(() => {
     if (!timeLeft || showScore) return;
 
@@ -42,7 +42,7 @@ function StudentDashboard() {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          calculateScore(); // auto submit
+          calculateScore();
           return 0;
         }
         return prev - 1;
@@ -52,8 +52,8 @@ function StudentDashboard() {
     return () => clearInterval(timer);
   }, [timeLeft, showScore]);
 
-  const handleOptionSelect = (questionId, selectedValue) => {
-    setAnswers({ ...answers, [questionId]: selectedValue });
+  const handleOptionSelect = (questionId, selectedKey) => {
+    setAnswers({ ...answers, [questionId]: selectedKey }); // Save A/B/C/D
   };
 
   const handleNext = () => {
@@ -73,7 +73,9 @@ function StudentDashboard() {
   const calculateScore = () => {
     let count = 0;
     questions.forEach((q) => {
-      if (answers[q.id] === q.correctAnswer) {
+      const given = answers[q.id]?.trim().toUpperCase();
+      const correct = q.correctAnswer?.trim().toUpperCase();
+      if (given === correct) {
         count++;
       }
     });
@@ -104,7 +106,7 @@ function StudentDashboard() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="student-dashboard container mt-4">
       <h2>Student Dashboard</h2>
 
       {!selectedExam && (
@@ -140,39 +142,38 @@ function StudentDashboard() {
             {String(timeLeft % 60).padStart(2, "0")}
           </div>
 
-            {/* ⚠️ Less than 1 minute warning */}
-            
-             {timeLeft <= 60 && (
-             <div className="alert alert-danger mt-2">
-               ⚠️ Less than 1 minute remaining. Hurry up!
-                    </div>
-             )}
+          {timeLeft <= 60 && (
+            <div className="alert alert-danger mt-2">
+              ⚠️ Less than 1 minute remaining. Hurry up!
+            </div>
+          )}
 
           <h4>
             Question {currentQuestionIndex + 1} of {questions.length}
           </h4>
           <p>{questions[currentQuestionIndex].questionText}</p>
+
           {["A", "B", "C", "D"].map((key) => {
-            const value =
-              questions[currentQuestionIndex][`option${key}`];
+            const value = questions[currentQuestionIndex][`option${key}`];
             return (
-              <div key={key} className="form-check">
+              <div key={key} className="form-check custom-radio-align">
                 <input
                   className="form-check-input"
                   type="radio"
                   name={`question-${currentQuestionIndex}`}
-                  value={value}
+                  value={key}
                   checked={
-                    answers[questions[currentQuestionIndex].id] === value
+                    answers[questions[currentQuestionIndex].id] === key
                   }
                   onChange={() =>
-                    handleOptionSelect(questions[currentQuestionIndex].id, value)
+                    handleOptionSelect(questions[currentQuestionIndex].id, key)
                   }
                 />
                 <label className="form-check-label">{value}</label>
               </div>
             );
           })}
+
           <div className="mt-3 d-flex justify-content-between">
             <button
               className="btn btn-secondary"
@@ -182,7 +183,9 @@ function StudentDashboard() {
               Previous
             </button>
             <button className="btn btn-success" onClick={handleNext}>
-              {currentQuestionIndex === questions.length - 1 ? "Submit" : "Next"}
+              {currentQuestionIndex === questions.length - 1
+                ? "Submit"
+                : "Next"}
             </button>
           </div>
         </div>
@@ -194,7 +197,10 @@ function StudentDashboard() {
           <p>
             Your score: {score} / {questions.length}
           </p>
-          <button className="btn btn-secondary" onClick={() => setSelectedExam(null)}>
+          <button
+            className="btn btn-secondary"
+            onClick={() => setSelectedExam(null)}
+          >
             Back to Dashboard
           </button>
         </div>

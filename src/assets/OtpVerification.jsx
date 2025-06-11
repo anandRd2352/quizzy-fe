@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./css/OtpVerification.css"; // 👈 Import the CSS
 
 function OtpVerification() {
   const [otp, setOtp] = useState("");
@@ -28,22 +29,26 @@ function OtpVerification() {
   };
 
   if (!email) {
-    return <p>Email not provided. Please register again.</p>;
+    return <p className="error-message">Email not provided. Please register again.</p>;
   }
 
   return (
-    <div className="container mt-4">
-      <h2>OTP Verification</h2>
-      <p>OTP sent to: <strong>{email}</strong></p>
-      <input
-        type="text"
-        className="form-control mb-2"
-        placeholder="Enter OTP"
-        value={otp}
-        onChange={(e) => setOtp(e.target.value)}
-      />
-      <button className="btn btn-primary" onClick={verifyOtp}>Verify OTP</button>
-      {message && <p className="mt-2">{message}</p>}
+    <div className="otp-verification-wrapper">
+      <div className="otp-verification-box">
+        <h2>OTP Verification</h2>
+        <p className="otp-info">
+          OTP sent to: <strong>{email}</strong>
+        </p>
+        <input
+          type="text"
+          className="otp-input"
+          placeholder="Enter OTP"
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
+        />
+        <button className="verify-btn" onClick={verifyOtp}>Verify OTP</button>
+        {message && <p className="otp-message">{message}</p>}
+      </div>
     </div>
   );
 }
