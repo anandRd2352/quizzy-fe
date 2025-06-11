@@ -20,7 +20,7 @@ import com.example.onlineexam.service.UserServiceImpl;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:5173")
 public class UserController {
 	
 	@Autowired

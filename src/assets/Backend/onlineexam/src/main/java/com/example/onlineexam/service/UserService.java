@@ -6,8 +6,7 @@ import com.example.onlineexam.dto.LoginDto;
 import com.example.onlineexam.entity.User;
 
 public interface UserService {
-	
-	User registerUser(User user);
-	 User userLogin(LoginDto login);
-
+    User registerUser(User user);
+    User userLogin(LoginDto login);
+    Optional<User> findByEmail(String email);
 }
